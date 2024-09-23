@@ -13,6 +13,9 @@ extern void test_while();
 extern void test_increment();
 extern void test_even_uneven();
 
+void exercise_teuflische_folge();
+void exercise_zinsberechnung();
+
 int main_hello_world() 
 {
     printf("Hello World");
