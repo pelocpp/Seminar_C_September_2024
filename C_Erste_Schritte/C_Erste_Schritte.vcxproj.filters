@@ -18,6 +18,9 @@
     <ClCompile Include="Program.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="01_Control_Structures.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Montag.txt" />

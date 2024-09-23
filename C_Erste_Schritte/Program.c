@@ -4,6 +4,12 @@
 
 #include <stdio.h>
 
+// Vorwärtsdeklaration
+extern void test_control_structures();
+extern void test_control_structures_02();
+extern void test_control_structures_03();
+extern void test_true_false();
+
 int main_hello_world() 
 {
     printf("Hello World");
@@ -25,7 +31,7 @@ int test_short()
 }
 
 // globale Variable
-int size;
+int size = 1;
 
 struct Time
 {
@@ -36,11 +42,11 @@ struct Time
 
 int test_datatypes()
 {
-    struct Time jetzt;      // C/C++
-    struct Time jetztJava;
-    struct Time* jetztJava = new Time();  // Java oder C#
-    struct Time* jetztJava = malloc (sizeof (Time));  // Java oder C#
-    free();
+    //struct Time jetzt;      // C/C++
+    //struct Time jetztJava;
+    //struct Time* jetztJava = new Time();  // Java oder C#
+    //struct Time* jetztJava = malloc (sizeof (Time));  // Java oder C#
+    //free();
 
     //int size;
 
@@ -66,7 +72,7 @@ int main()  // Einsprungpunkt // entry point
 {
     size = 456;
 
-    test_datatypes();
+    test_control_structures_03();
 
     return 0;
 }

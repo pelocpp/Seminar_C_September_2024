@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="01_Control_Structures.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>

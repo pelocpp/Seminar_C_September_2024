@@ -327,3 +327,75 @@ B) Betriebsystem:  .exe File startet:   "Loader"
    Letzte Anweisung des Loaders:  IP ==> main
 
 ============================================
+
+if-Anweisung:
+
+SYNTAX:
+
+if ( bedingung ) {
+
+    // Rumpf // Folge von Anweisungen
+}
+
+bedingung: Ausdruck ===> wahr oder falsch
+
+                         true oder false
+
+                         C: Es gibt in C kein true und false
+                         C: Es gibt in C keinen Datentyp bool
+
+C: false <=> 0 (int)
+
+   true  <=> ungleich 0 (alles außer 0)
+
+Lesbarkeit: #defines 
+
+Tool: Präprozessor
+
+
+Frage:
+
+    // Achtung: Auch das ist C --- Stilistik: Diskussionsfähig
+    if ( a ) {
+00007FF71E752D86  cmp         dword ptr [a],0  
+00007FF71E752D8A  je          test_true_false+79h (07FF71E752D99h)  
+        printf("Bedingung ist erfuellt!");
+00007FF71E752D8C  lea         rcx,[string "Bedingung ist erfuellt!" (07FF71E75AC10h)]  
+00007FF71E752D93  call        printf (07FF71E75119Fh)  
+00007FF71E752D98  nop  
+    }
+
+    VERSUS
+
+        // Achtung: Auch das ist C --- Stilistik: Diskussionsfähig
+    if ( a != 0) {
+00007FF642D12D86  cmp         dword ptr [a],0  
+00007FF642D12D8A  je          test_true_false+79h (07FF642D12D99h)  
+        printf("Bedingung ist erfuellt!");
+00007FF642D12D8C  lea         rcx,[string "Bedingung ist erfuellt!" (07FF642D1AC10h)]  
+00007FF642D12D93  call        printf (07FF642D1119Fh)  
+00007FF642D12D98  nop  
+    }
+
+
+Operatoren - Vorrang
+
+i) Logische Operatoren
+
+  && Und
+  || Oder
+  !  Nicht
+
+ii) Bitweise Operatoren
+
+  & Und
+  | Oder
+  ~ Nicht
+
+===============================================
+
+= while: 
+
+= Übungen
+
+===============================================
