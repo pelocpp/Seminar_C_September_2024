@@ -1,0 +1,329 @@
+===================================
+
+Programmierung in C
+
+Peter Loos
+
+===================================
+
+Montag
+
+===================================
+
+Erwartung:
+
+Ziel:
+
+== Starthilfe
+
+== Kann man C in 5 Tagen lernen ???
+
+   Man kann sich in 5 Tagen mit C "vertraut" machen
+
+   Praxis: Man muss mit C arbeiten
+
+===================================
+
+
+Einführung:
+
+C/C++ ...   C#  ... Java
+
+PLC
+
+Arduino IDE
+
+Systematik
+
+===================================
+
+Organisatorisches:
+
+5 Tage
+
+===================================
+
+
+Unterlagen:
+
+https://github.com/pelocpp
+
+
+https://www.bell-labs.com/usr/dmr/www/cman.pdf
+
+Brian W. Kernighan  "Die UNIX-Story"
+
+===================================
+
+C:    Prozedurale Programmierung
+
+      struct  // Struktur
+
+      "OO für Arme"  ==> In C objekt-orientiert programmieren (struct).
+
+      Dennis Ritchie  // Bell Labs 
+
+      Grund für C: Unix (Multics)  Assembler (100%) => PL/I => B => C
+
+      C: Feature:  Zeigerarithmetik (hat Assembler vergleichsweise überflüssig gemacht)
+
+      (90% C / 10% Assembler)   
+
+      Assembler:  HAL 
+
+C++:  Erweiterung von C: Objekt-Orientierung
+
+      struct ===> class
+
+      Bjarne Stroustrup
+
+Aussage: C ist in C++ enthalten (99%)
+
+===================================
+
+Tooling:  Visual Studio
+
+          Eclipse (Java)
+
+===================================
+
+"Hello World"
+
+Editor
+
+Compiler:
+
+C:
+
+
+Phase 1: Überprüfung der Syntax ("Compile")
+         // C-Compiler
+
+    Resultat: Datei mit dem Inhalt der Quelldatei - in Binärformat.
+
+              Common Object File Format (COFF)
+
+              Windows:  .obj    // Unix:  .o
+
+Phase 2: Übersetzt das "Geschriebene" in Maschinencode ("Build")
+         // Linker:
+
+    Input:    ALLE .obj Dateien, die zu einem Projekt gehören.
+
+    Output:   EIN .exe File
+
+
+Windows: Maschinencode: .exe  (Executable)  
+Unix:    Maschinencode: keine Endung
+
+"Geschriebene" => Quellcode
+
+C# / Java:
+
+1. Compiler:
+
+Übersetzt den Quellcode in einen Zwischencode
+
+Java: Sog. "Byte-Code" (Zwischencode)
+
+2. Compiler: Zwischencode => Maschinencode
+
+Innerhalb der virtuellen Maschine (VM) vorhanden:  On-Demand
+
+==> Meinung: Interpretation  (Java 1.0: Interpreter-Prinzip)
+
+Höhere Version: Es wird nach Maschinencode übersetzt.
+
+Allgemeiner definiert // implementiert: Maschinen-UNABHÄNGIGKEIT zu erreichen.
+
+=============================================================
+
+Datentypen, Variablen und Konstanten
+
+Was ist eine Variable???
+
+Ein Name für ein Stück Speicher 
+
+C:
+
+3 Optionen: Stack // Heap (malloc, free) // Globale Variablen (globales Datensegment)
+
+
+Was ist ein Datentyp - 2 Aspekte
+
+== Umfang der Variablen
+== Wie wird dieses Stück Speicher interpretiert:
+
+   1101 1010 1010
+
+   ==> Ganze Zahl (123) -      2-er Komplement
+
+       int n;       // Datentyp int !!!
+
+       char n;      // Umfang: 1 Byte !!!
+       short n;     // Umfang: 2 Bytes !!!
+       int n;       // Umfang: Ist in C Rechner-abhängig // Breite des Akkus // zentrale Rechenregister
+                    // meistens 4 Bytes 
+
+       long n;      // Umfang: 4 Bytes !!!
+       long long n; // Umfang: 8 Bytes
+
+
+    Beispiel:
+
+    short n;    
+
+    Wie groß ist der Wertebereich ???
+
+    -32.768 ... 32.767
+
+    Geht das auch ohne Vorzeichen ???
+
+    unsigned short n;    
+
+    0 ... 65.535
+
+
+   ==> Gleitpunktzahl (5.45)
+
+
+   Beispiel:   0101
+
+                  x = 0 oder 1
+                 x  = 2 oder 0
+                x   = 4 oder 0
+               x    = 8 oder 0
+
+                  1 = 1
+                 0  = 0
+                1   = 4
+               0    = 0
+               ========
+                      5
+
+   1101 1010 1010
+
+   ==> Gleitpunktzahl : IEEE 754 Format
+
+   Siehe https://www.h-schmidt.net/FloatConverter/IEEE754.html
+
+
+   float n;      // 4 Bytes
+   double d;     // 8 Bytes
+
+Frage:
+
+Habe mehrere "kleine" Werte // ich stoße NICHT an die obere Grenze
+
+short s1 = 123;
+
+short s2 = 456;
+
+short s3 = s1 + s2;
+
+// gut oder schlecht ???
+
+
+Eine CPU kennt - bzgl. der Arithmetik - nur den AKKU:
+
+Breite des AKKUS: Entspricht Datentyp 'int'
+
+Wenn kleinere Datentypen verwendet werden: 
+
+Es muss "kopiert" bzw. es müssen "obere Bits" gelöscht werden.
+
+    short s1 = 123;
+00007FF62E0C178C  mov         eax,7Bh  
+00007FF62E0C1791  mov         word ptr [s1],ax  
+
+    short s2 = 456;
+00007FF62E0C1795  mov         eax,1C8h  
+00007FF62E0C179A  mov         word ptr [s2],ax  
+
+    short s3 = s1 + s2;
+00007FF62E0C179E  movsx       eax,word ptr [s1]  
+00007FF62E0C17A2  movsx       ecx,word ptr [s2]  
+00007FF62E0C17A6  add         eax,ecx  
+00007FF62E0C17A8  mov         word ptr [s3],ax  
+
+vERSUS
+
+    int s1 = 123;
+00007FF7A285178C  mov         dword ptr [s1],7Bh  
+
+    int s2 = 456;
+00007FF7A2851793  mov         dword ptr [s2],1C8h  
+
+    int s3 = s1 + s2;
+00007FF7A285179A  mov         eax,dword ptr [s2]  
+00007FF7A285179D  mov         ecx,dword ptr [s1]  
+00007FF7A28517A0  add         ecx,eax  
+00007FF7A28517A2  mov         eax,ecx  
+00007FF7A28517A4  mov         dword ptr [s3],eax  
+
+
+Welchen Grund gibt es dann noch, short zu verwenden ???
+
+Bei großen Datenmengen !!!
+
+Arrays: Das ist eine Ansammlung vieler Daten
+
+============================================
+
+Debugger:
+
+A) Haltepunkt // Break-Point  - F9 (oder mit der Maus)
+
+   Programm hält hier an.
+
+B) Eine "Zeile ausführen"
+
+   eine Anweisung ausführen
+   (einen Befehl ausführen)
+
+   F10 - (oder mit der Maus:  Pfeil "horizontal")
+
+
+C) Stop Debugging: Rotes Rechteck
+
+D) Inhalt von Variablen: Maus drüber
+
+============================================
+
+Tipp:
+
+Definition einer Variablen:
+
+============================================
+
+size_t
+
+DER DATENTP, der der Breite des Akkus entspricht !!!
+
+============================================
+
+Was hat es mit Warnings und Errors in C auf sich ????
+
+Beispiel: Viele Warnings sind eigentlich Fehler !!!!!!!!
+
+Dennis Ritchie: 
+
+"A programmer knows what he does"   :)
+
+Freizügigkeit: Systemprogrammierung.
+
+C und Sicherheit: Nicht vorgesehen.
+
+C# // Java:     Aspekt: Robustheit (Exception)
+
+============================================
+
+Wer legt die Größe von Stack, Heap etc. fest ???
+
+A) Das steht teilweise im .exe drin.
+
+B) Betriebsystem:  .exe File startet:   "Loader"
+
+   Letzte Anweisung des Loaders:  IP ==> main
+
+============================================
