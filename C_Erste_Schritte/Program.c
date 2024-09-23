@@ -16,7 +16,7 @@ extern void test_even_uneven();
 void exercise_teuflische_folge();
 void exercise_zinsberechnung();
 
-int main_hello_world() 
+int main_hello_world()
 {
     printf("Hello World");
 
@@ -58,12 +58,11 @@ int test_datatypes()
 
     size_t size2;
 
-    size = sizeof(int); 
+    size = sizeof(int);
 
     // Print formatted
     size = 0x1101;
     printf("Wert von size: %d Ende\\Nochmal Ende\n", size);
-
 
     size = sizeof(short);
     size = sizeof(char);
@@ -73,14 +72,9 @@ int test_datatypes()
     return 0;
 }
 
-
 int main()  // Einsprungpunkt // entry point
 {
-
-
-    size = 456;
-
+    size = 456; 
     test_even_uneven();
-
     return 0;
 }
