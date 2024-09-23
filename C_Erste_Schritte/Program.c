@@ -9,6 +9,9 @@ extern void test_control_structures();
 extern void test_control_structures_02();
 extern void test_control_structures_03();
 extern void test_true_false();
+extern void test_while();
+extern void test_increment();
+extern void test_even_uneven();
 
 int main_hello_world() 
 {
@@ -70,9 +73,11 @@ int test_datatypes()
 
 int main()  // Einsprungpunkt // entry point
 {
+
+
     size = 456;
 
-    test_control_structures_03();
+    test_even_uneven();
 
     return 0;
 }

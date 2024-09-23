@@ -3,6 +3,7 @@
 #define True  1
 #define False 0
 
+#include <stdbool.h>
 
 // Bekanntmachung: Es gibt eine globale Variable size
 // (( Welcher Wert: ?????????????? ))
@@ -196,4 +197,71 @@ void test_control_structures_03()
 
 void test_while()
 {
+    int a = 20;
+
+    // Rumpf kann auch 0-Mal // nicht ausgeführt werden
+    // Abweisend
+    //while ( a < 10 )
+    //{
+    //    printf("hier ... a=%d\n", a);
+
+    //    // a = a + 1;
+    //    a++;   // plus 1
+
+    //    //a = a + 5;  // Abkürzung:
+    //    //a += 5;
+    //}
+
+    do
+    {
+        printf("hier ... a=%d\n", a);
+        a++;
+
+    } while (a < 10);
+
+    printf("Ende");
+}
+
+void test_increment()
+{
+    int a = 5;
+
+    int b;
+
+    b = a++;
+    // vs
+    b = ++a;
+
+    // -------------------------
+
+    // Man könnte das auch "robuster" schreiben
+
+    b = a;
+    a++;
+
+    // vesus
+
+    a++;
+    b = a;
+}
+
+void test_even_uneven()
+{
+    int n = 6; 
+
+    // Oder von der Konsole einlesen:
+
+    printf("Bitte Wert eingeben: ");
+    scanf_s("%d", &n);
+
+    if (n % 2 == 0 ) {
+
+        printf("n %d ist gerade\n", n);
+
+    }
+    else if (n % 2 == 1) {
+
+        printf("n %d ist ungerade\n", n);
+
+    }
 }

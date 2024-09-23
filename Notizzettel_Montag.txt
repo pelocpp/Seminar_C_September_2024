@@ -399,3 +399,70 @@ ii) Bitweise Operatoren
 = Übungen
 
 ===============================================
+
+while-Anweisung:
+
+SYNTAX:
+
+while ( bedingung )
+{
+    // Rumpf
+}
+
+
+// =================================================
+
+Frage:  Zu
+
+#include <stdbool.h>
+
+C99-Standard 
+
+Klassische C  // "Kernighan/Ritchie-C"
+
+Ansi-C        // Standardisierung
+
+VORSICHT:
+
+C99 ist nicht kompatibel mit C
+
+C99:
+
+int n = 100; 
+// n wird berechnet
+int zahlen [n];   // Feld einer berechneten Länge
+
+DAS ÜBERSETZT NICHT IN C/C++. // malloc // new/delete
+
+// =================================================
+
+1. Übung:
+=========
+
+Teuflische Folge
+
+Zahlenfolge
+
+Startwert: int n; 
+
+Nächste Element:
+
+Wenn n gerade ist:     n => n / 2
+Wenn n ungerade ist:   n => 3 * n + 1
+
+Beispiel:
+
+n = 7;
+
+7 => 22 => 11 => 34  => 17 => 52 => 26 => 13 => 40
+ => 20  => 10 => 5 => 16 => 8 => 4 => 2 => 1.
+
+Ende der Folge bei 1
+
+Aussage: Für JEDES n endet diese Folge nach ENDLICH
+VIELEN SCHRITTEN.
+
+Beweis: Bis heute nicht gelungen.
+
+
+
