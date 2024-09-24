@@ -130,6 +130,8 @@
     <ClCompile Include="01_Control_Structures.c" />
     <ClCompile Include="02_Exercise_TeuflischeFolge.c" />
     <ClCompile Include="03_Exercise_Zinsberechnung.c" />
+    <ClCompile Include="04_Arrays.c" />
+    <ClCompile Include="05_Unterprogramme.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>

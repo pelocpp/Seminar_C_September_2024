@@ -9,3 +9,118 @@ Peter Loos
 Dienstag
 
 ===================================
+
+TODO:
+
+break;  continue;
+
+
+===================================
+
+
+Was ist ein Feld?
+
+Ein Speicherbereich mit Werten desselben Datentyps.
+Die Daten liegen "hintereinander" // konsekutiv
+
+Einschränkung:  Die Länge ist FIX.
+
+===================================
+
+for   - Wiederholungsschleife
+
+while - Wiederholungsschleife
+
+SYNTAX:
+
+for ( anweisung (initialisierung) ; bedingung  ; anweisung (weiterschalten)   )
+{
+}
+
+===========================================
+
+Präprozessor
+------------
+
+Tooling:
+
+== Editor (Quelltext)
+== Präprozessor (Modifikationen am Quelltext / Quelltextänderungen)
+
+   -- Direktiven:   Erste Spalte: #
+                    Kommando:    define
+                    Kommando:    include
+
+== Compiler (Syntax, COFF-File generieren)
+== Linker (COFF-Files, .EXE-File generieren)
+
+
+Präprozessor: Etwas aus der Mode geraten
+
+Reine TEXTERSETZUNG
+
+#define   Length   20
+
+ACHTUNG !!!!!!!!!!!!!!!
+
+#define   Length   20;  // <==== Semikolon
+
+#define True  1
+#define False 0
+
+=========================================================
+
+Unterprogramm
+-------------
+
+In C:
+
+== Procedure
+
+     Unterprogramm
+     Kann Parameter haben
+     Es führt eine Reihe von Anweisungen aus
+     Hat kein Ergebnis: Keinen Rückgabetyp (void == 'nichts') 
+
+== Function
+
+     Unterprogramm
+     Kann Parameter haben
+     Es führt eine Reihe von Anweisungen aus
+     Hat ein Ergebnis: Rückgabetyp
+
+
+SYNTAX:
+
+Rückgabetyp NameDerProcedure '('  parameter   ')'
+{
+}
+
+
+Spezialität: Rekursion
+----------------------
+
+Klassiker: Fakultät:   n! = (n-1)! * n
+
+VORSICHT:
+
+Sie können Ausnahmecode 0xC00000FD in ntstatus. h suchen.
+Dieser Ausnahmecode ist STATUS_STACK_OVERFLOW
+
+Frage:
+Verwenden wir Rekursion in "Product SW" ???
+
+Rayan: Ja.
+
+Peter: VORSICHT !!!!!!!!!!!!!!!!
+
+A) Der Stack wird belastet !!!!!!!!!!!!!
+
+B) Wenn ein Fehler eintritt: Dann kommt es zu einem Stack Overflow == Absturz
+
+C) In den meisten Fällen gibt es an Stelle einer rekursiven Lösung
+   auch eine iterative Lösung.
+
+==============================================================
+
+
