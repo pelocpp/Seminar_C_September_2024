@@ -41,7 +41,7 @@ void exercise_zinsberechnung_mit_array()
 
     int years = doubleInterestRateWithWithAccumulation(capital, rate, accumulatedCapital, Length);
 
-    printf("After %d years, a capital of %lf with interest rate  %.2lf is doubled!\n",
+    printf("After %d years, a capital of %lf with interest rate %.2lf is doubled!\n",
         years, capital, rate);
 
     for (int i = 0; i < Length; i++)
