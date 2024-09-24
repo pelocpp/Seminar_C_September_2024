@@ -33,12 +33,26 @@
     <ClCompile Include="05_Unterprogramme.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="06_pointer.c">
+    <ClCompile Include="06_Pointer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="08_ArraysUndPointer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="07_ZeigerArithmetik.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Montag.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Pointer_01.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Pointer_02.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

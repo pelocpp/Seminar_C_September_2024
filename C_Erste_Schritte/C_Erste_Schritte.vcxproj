@@ -132,12 +132,18 @@
     <ClCompile Include="03_Exercise_Zinsberechnung.c" />
     <ClCompile Include="04_Arrays.c" />
     <ClCompile Include="05_Unterprogramme.c" />
-    <ClCompile Include="06_pointer.c" />
+    <ClCompile Include="06_Pointer.c" />
+    <ClCompile Include="07_ZeigerArithmetik.c" />
+    <ClCompile Include="08_ArraysUndPointer.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Dienstag.txt" />
     <Text Include="..\Notizzettel_Montag.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Pointer_01.png" />
+    <Image Include="..\Pointer_02.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

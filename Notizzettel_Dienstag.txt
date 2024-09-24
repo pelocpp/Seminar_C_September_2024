@@ -181,8 +181,11 @@ ZWEI OPERATOREN:
 
 "Adresse von":                         & (Variable)
 
+                                       "referenzieren" // sich auf etwas beziehen
+
 "Wert von" // indirekter Zugriff :     * (Zeiger-Variable)
 
+                                       "de-referenzieren"
 
 Bilder:
 
@@ -190,3 +193,151 @@ https://github.com/pelocpp/cpp_introduction/blob/master/Cpp_Introduction/Markdow
 
 ============================================================
 
+Zeiger-Arithmetik
+-----------------
+
+Konzept / Design von C:
+
+Motivation von C:
+
+C sollte ein Ersatz für Assembler sein.
+
+Assembler: Auf Speicher sehr universell zugreifen
+
+MOV ...
+
+==============================================
+
+"Adresse des zweiten Elements":
+
+0x005bf80c   <=== Erstes Element
+0x005bf80d
+0x005bf80e
+0x005bf80f
+
+0x005bf810  <=== Zweites Element
+
+
+Abstand von zwei aufeinander folgenden Elementen im Feld:
+
+sizeof (int)
+
+Bei uns / diesem Rechner: sizeof (int) = 4
+
+Beispiel:
+
+C4
+C5
+C6
+C7
+
+C8
+
+
+E8
+E9
+EA
+
+========================================================
+
+Eine (ironische) Aussage:
+
+In C gibt es KEINE Felder.
+
+		* (ip + i) = 4 * i + 1;
+0098683D  mov         eax,dword ptr [ebp-6Ch]  
+00986840  lea         ecx,[eax*4+1]  
+00986847  mov         edx,dword ptr [ebp-6Ch]  
+0098684A  mov         eax,dword ptr [ip]  
+0098684D  mov         dword ptr [eax+edx*4],ecx  
+		// i = 0, 1, 2, 3
+		// ip = 1024, 1028, 102C, 1030, 1034, ...
+
+		// VEREINFACHENDE SYNTAX
+		ip[i] = 4 * i + 1;  // IST IDENTISCH zu Zeile 97
+00986850  mov         eax,dword ptr [ebp-6Ch]  
+00986853  lea         ecx,[eax*4+1]  
+0098685A  mov         edx,dword ptr [ebp-6Ch]  
+0098685D  mov         eax,dword ptr [ip]  
+00986860  mov         dword ptr [eax+edx*4],ecx  
+
+
+// ===================================================
+
+Frage: "Habe Derefenzierung nie gesehen"?
+
+C++:
+
+Themenbereich: Adressen:
+
+A) Pointer
+
+Brauche ich Pointer a la C auch in C++:
+
+Ja.
+
+Bei new/ delete:
+
+int* vielenWerte = new int [100];
+
+2 Optionen mit diesem Zeiger zu arbeiten:  // geerbt von C
+
+i)  vielenWerte[i] = 99;
+ii) *(vielenWerte + i) = 99;
+
+
+b) Referenz
+
+int  n = 123;
+int& rn = n;
+
+NICHT:    *rn = 456; FALSCH
+SONDERN:   rn = 456;
+
+=======================================================
+
+	// langweilig:
+	speicher [3] = 10;
+002E67E0  mov         eax,4  
+002E67E5  imul        ecx,eax,3  
+002E67E8  mov         dword ptr speicher[ecx],0Ah  
+
+	// interessanter
+	*(speicher + 3) = 11;
+002E67F0  mov         dword ptr [ebp-24h],0Bh  
+
+	// very interesting
+	*(3 + speicher) = 12;
+002E67F7  mov         dword ptr [ebp-24h],0Ch  
+
+	// very, very interesting
+	3 [speicher] = 13;
+002E67FE  mov         eax,4  
+002E6803  imul        ecx,eax,3  
+002E6806  mov         dword ptr speicher[ecx],0Dh  
+
+====================================================
+
+	// langweilig:
+	ip[3] = 10;
+007967E6  mov         eax,4  
+007967EB  imul        ecx,eax,3  
+007967EE  mov         edx,dword ptr [ip]  
+007967F1  mov         dword ptr [edx+ecx],0Ah  
+
+	// interessanter
+	*(ip + 3) = 11;
+007967F8  mov         eax,dword ptr [ip]  
+007967FB  mov         dword ptr [eax+0Ch],0Bh  
+
+	// very interesting
+	*(3 + ip) = 12;
+00796802  mov         eax,dword ptr [ip]  
+00796805  mov         dword ptr [eax+0Ch],0Ch  
+
+	// very, very interesting
+	3[ip] = 13;
+0079680C  mov         eax,4  
+00796811  imul        ecx,eax,3  
+00796814  mov         edx,dword ptr [ip]  
+00796817  mov         dword ptr [edx+ecx],0Dh  
