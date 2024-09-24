@@ -341,3 +341,36 @@ SONDERN:   rn = 456;
 00796811  imul        ecx,eax,3  
 00796814  mov         edx,dword ptr [ip]  
 00796817  mov         dword ptr [edx+ecx],0Dh  
+
+======================================================
+
+Neues Thema:
+
+== Arrays
+== Unterprogramme
+== Felder an Unterprogramme übergeben
+
+Wie sieht "Call-by_value" bei Feldern aus???
+
+Wird da eine Kopie eines Arrays übergeben: NEIN !!!
+
+Sondern: Es wird die Anfangsadresse übergeben !!!
+
+Konsequenz:
+
+In C geht bei der Übergabe eines Felds die LÄNGE verloren !!
+
+Es wird ja INTERN die Anfangsadresse übergeben !!!
+
+"Array Decay"
+
+==============================================================
+
+Option 1:
+
+Geht nicht immer, wenn die Anhäufung länger dauert als das Feld lang ist.
+
+int doubleInterestRateWithWithAccumulation(
+    double capital, double rate, double accumulation[], int length
+);
+

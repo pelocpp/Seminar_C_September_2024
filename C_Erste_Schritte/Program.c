@@ -18,6 +18,8 @@ extern void testProceduresRek();
 extern void testFunctions();
 extern void test_pointer();
 extern void test_pointer_arithmetic();
+extern void test_arrays_und_pointer();
+extern void exercise_zinsberechnung_mit_array();
 
 void exercise_teuflische_folge();
 void exercise_zinsberechnung();
@@ -81,6 +83,6 @@ int test_datatypes()
 int main()  // Einsprungpunkt // entry point
 {
     size = 456; 
-    test_pointer_arithmetic();
+    exercise_zinsberechnung_mit_array();
     return 0;
 }

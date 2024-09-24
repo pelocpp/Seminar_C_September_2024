@@ -42,6 +42,9 @@
     <ClCompile Include="07_ZeigerArithmetik.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="09_ZinzesZins_Mit_Array.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Montag.txt" />

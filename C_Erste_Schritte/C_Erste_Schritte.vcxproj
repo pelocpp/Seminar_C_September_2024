@@ -135,6 +135,7 @@
     <ClCompile Include="06_Pointer.c" />
     <ClCompile Include="07_ZeigerArithmetik.c" />
     <ClCompile Include="08_ArraysUndPointer.c" />
+    <ClCompile Include="09_ZinzesZins_Mit_Array.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>
