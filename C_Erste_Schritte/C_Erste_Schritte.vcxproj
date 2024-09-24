@@ -132,6 +132,7 @@
     <ClCompile Include="03_Exercise_Zinsberechnung.c" />
     <ClCompile Include="04_Arrays.c" />
     <ClCompile Include="05_Unterprogramme.c" />
+    <ClCompile Include="06_pointer.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>

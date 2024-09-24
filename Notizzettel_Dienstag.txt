@@ -122,5 +122,71 @@ C) In den meisten Fällen gibt es an Stelle einer rekursiven Lösung
    auch eine iterative Lösung.
 
 ==============================================================
+==============================================================
 
+Progammiersprache C:
+
+Vorgänger: B,  PL/1
+
+In C:
+
+Datentyp Adresse:
+
+Wahrheit: Datentyp Adresse, muss einen Bezug zu
+          einem Datentyp (int, float) haben.
+
+
++		ip	0x000000f85356f5f4 {123}	int *
+
+0x000000f85356f5f4
+0x000000f85356f5f5
+0x000000f85356f5f6
+0x000000f85356f5f7
+
+0x000000f85356f5f8   ..  frei
+
++		ip	0x00000056713cf854 {123}	int *
+
+0x00000056713cf854
+0x00000056713cf855
+0x00000056713cf856
+0x00000056713cf857
+
+0x00000056713cf858
+
+
++		ip	0x005bf80c {123}	int *
+
+0x005bf80c
+0x005bf80d
+0x005bf80e
+0x005bf80f
+
+0x005bf810
+
+ip1 = 0x00cff6cc {1}
+
+0x00cff6cc
+0x00cff6cd
+0x00cff6ce
+0x00cff6cf
+
+0x00cff6d0
+
+=========================================
+
+Adressen in C:
+
+ZWEI OPERATOREN:
+
+"Adresse von":                         & (Variable)
+
+"Wert von" // indirekter Zugriff :     * (Zeiger-Variable)
+
+
+Bilder:
+
+https://github.com/pelocpp/cpp_introduction/blob/master/Cpp_Introduction/Markdown/ParameterPassingTechniques.md
+
+============================================================
 

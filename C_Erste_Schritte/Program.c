@@ -15,6 +15,8 @@ extern void test_even_uneven();
 extern void test_arrays();
 extern void testProcedures();
 extern void testProceduresRek();
+extern void testFunctions();
+extern void test_pointer();
 
 void exercise_teuflische_folge();
 void exercise_zinsberechnung();
@@ -78,6 +80,6 @@ int test_datatypes()
 int main()  // Einsprungpunkt // entry point
 {
     size = 456; 
-    testProceduresRek();
+    test_pointer();
     return 0;
 }
