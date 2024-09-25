@@ -206,3 +206,69 @@ int str_appendEx ( char* s, char* toInsert, char* result, int length );
 
 char ergebnis[100];
 int str_appendEx ( "ABC", "123", ergebnis, 100 );
+
+============================================================
+============================================================
+
+Strukturierung von Daten in C:
+------------------------------
+
+== Arrays
+== Strukturen ( Vorgänger der Klassen )
+
+== Arrays:      Viele Daten DESSELBEN Typs
+== Strukturen:  Viele Daten UNTERSCHIEDLICHEN Typs
+
+      Um mehrere Variablen, die elementar wären,
+      zu einem GANZEN zusammenzufassen.
+
+Person:
+
+== Namen:       char name[32];
+== Alter:       int  age;
+== Geschlecht:  char gender;
+
+SYNTAX:
+
+struct NameDerStruktur
+{
+    char name[32];
+    int  age;
+    char gender;
+};
+
+Beispiel:
+
+struct Person
+{
+    char name[32];
+    int  age;
+    char gender;
+};
+
+Uhrzeit:
+
+int hours;
+int minutes;
+int seconds;
+
+struct Time
+{
+    int hours;
+    int minutes;
+    int seconds;
+};
+
+typedef:
+
+Ist eine Option, einem Typ einen neuen Namen zu geben:
+
+typedef ALT NEU;
+
+===========================================================
+
+ACHTUNG:
+
+== Arrays:     Bei Arrays wird bei der Parameterübergabe die ANFANGSADRESSE übergeben.
+== Strukturen: Bei Strukturen wird bei der Parameterübergabe eine KOPIE übergeben.
+

@@ -88,8 +88,7 @@ void test_strings()
 	printf("Zeichenkette: %s\n", s2);
 }
 
-
-int str_length(char* s)
+static int str_length(char* s)
 {
 	int length = 0;
 
@@ -101,7 +100,7 @@ int str_length(char* s)
 	return length;
 }
 
-int str_append(char* s, char ch, char* result, int length)
+static int str_append(char* s, char ch, char* result, int length)
 {
     // Return Value: 0 = Puffer zu klein // 1 = Success
 
@@ -137,15 +136,108 @@ int str_append(char* s, char ch, char* result, int length)
 	return 1;
 }
 
+static int str_insert(char* s, char ch, int pos, char* result, int length)
+{
+	// ist das Ergebnisfeld gross genug
+	int len = str_length(s);
+	if (len + 1 >= length) {
+		return 0;
+	}
+
+	int index = 0;
+
+	// Ersten Teil Originalzeichenkette in Resultatzeichenkette umkopieren
+	while (s[index] != '\0' && index < pos)
+	{
+		result[index] = s[index];
+		index++;
+	}
+
+	// einzelnes Zeichen ch einfuegen
+	result[index] = ch;
+	index++;
+
+	// Zweiten Teil Originalzeichenkette in Resultatzeichenkette umkopieren
+	while (s[index-1] != '\0')
+	{
+		result[index] = s[index-1];
+		index++;
+	}
+
+	// Resultatzeichenkette mit '\0' terminieren
+	result[index] = '\0';
+
+	return 1;
+}
+
+static int str_append_ex(char* s, char* toInsert, char* result, int length)
+{
+	// Return Value: 0 = Puffer zu klein // 1 = Success
+	
+    // ist das Ergebnisfeld gross genug
+	int len1 = str_length(s);
+	int len2 = str_length(toInsert);
+
+	if (len1 + len2 + 1 >= length) {
+		return 0;
+	}
+
+	int index = 0;
+
+	// Originalzeichenkette in Resultatzeichenkette umkopieren
+	while (s[index] != '\0')
+	{
+		if (index >= length)
+		{
+			return 0;
+		}
+
+		result[index] = s[index];
+		index++;
+	}
+
+	// Zeichenkette 'toInsert' anhaengen
+	int indexToInsert = 0;
+	while (toInsert[indexToInsert] != '\0')
+	{
+		result[index] = toInsert[indexToInsert];
+		index++;
+		indexToInsert++;
+	}
+
+	// Resultatzeichenkette mit '\0' terminieren
+	result[index] = '\0';
+
+	return 1;
+}
+
+
+#define Length  10
+
 void test_exercises_strings()
 {
-	//int length = str_length("123");
-	//// oder
-	//char vieleZeichen[] = "ABC";
-	//length = str_length(vieleZeichen);
+	char ergebnis[Length];
+
+	//int hatGeklappt = str_insert("ABC", '!', 1, ergebnis, Length);
+
+	//if (hatGeklappt) printf("Ergebnis: %s\n", ergebnis);
+	//else printf("Fehler\n");
+
+	int hatGeklappt = str_append_ex("ABC", "DEF", ergebnis, Length);
+
+	if (hatGeklappt) printf("Ergebnis: %s\n", ergebnis);
+	else printf("Fehler\n");
+}
+
+void test_exercises_strings_01()
+{
+	int length = str_length("123");
+	// oder
+	char vieleZeichen[] = "ABC";
+	length = str_length(vieleZeichen);
 
 	// ===================================
-//	int str_append(char* s, char ch, char* result, int length)
+	//int str_append(char* s, char ch, char* result, int length)
 
 	char ergebnis[4]; // = { 0 };
 	int hatGeklappt = str_append("ABC", 'D', ergebnis, sizeof(ergebnis) / sizeof (char));

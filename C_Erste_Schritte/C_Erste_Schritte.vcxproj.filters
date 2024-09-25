@@ -51,6 +51,9 @@
     <ClCompile Include="11_Memory.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="12_Structs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Montag.txt" />
@@ -67,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GlobalDefinitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

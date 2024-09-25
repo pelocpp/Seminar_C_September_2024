@@ -31,7 +31,7 @@ static void test_function_global_variable()
 	            // einer static-Variablen weitergereicht: "Bad Smell"
 }
 
-void test_daten()
+static void test_daten()
 {
 	int n = 123;
 

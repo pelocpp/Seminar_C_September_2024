@@ -33,6 +33,7 @@ extern void test_chars();
 extern void test_strings();
 extern void test_memory();
 extern void test_exercises_strings();
+extern void test_structs();
 
 extern void exercise_zinsberechnung_mit_array();
 extern void exercise_teuflische_folge();
