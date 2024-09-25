@@ -45,10 +45,17 @@
     <ClCompile Include="09_ZinzesZins_Mit_Array.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="10_Zeichen_Zeichenketten.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="11_Memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Montag.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
+    <Text Include="..\Notizzettel_Mittwoch.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Pointer_01.png">
@@ -57,5 +64,10 @@
     <Image Include="..\Pointer_02.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GlobalDefinitions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

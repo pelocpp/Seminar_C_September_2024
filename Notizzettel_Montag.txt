@@ -63,6 +63,9 @@ C:    Prozedurale Programmierung
 
       Dennis Ritchie  // Bell Labs 
 
+      "A programmer knows what he does"
+      "America is a free country"
+
       Grund für C: Unix (Multics)  Assembler (100%) => PL/I => B => C
 
       C: Feature:  Zeigerarithmetik (hat Assembler vergleichsweise überflüssig gemacht)

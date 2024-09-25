@@ -1,0 +1,208 @@
+===================================
+Programmierung in C
+
+Peter Loos
+
+===================================
+
+Mittwoch
+
+===================================
+
+Include - Dateien
+
+Diese erstellen wir auch selbst:  
+
+Endung:   .h   // .hpp
+
+== Konstanten
+== Typen // Strukturen
+== Funktionsprototypen // Funktionsschnittstellen
+== Globale Variablendefinitionen
+
+============================================================
+
+Zeichen
+
+?   A   :  \n
+
+C - SYNTAX:
+
+'?'   'A'   ':'  '\n'
+
+Datentyp für Zeichen: char
+
+Dualität zwischen den beiden Datentypen char und int:
+
+Wie wird ein Zeichen im Speicher abgelegt ???
+
+Tabelle für Zeichen: ASCII
+
+'?' ===> ganzzahliger Wert
+
+Zwischen Zeichen und int-Werten (im Bereich von 0 .. 127)
+gibt es nicht wirklich einen Unterschied.
+
+Was ist dann noch der Unterschied zwischen char und int:
+
+char: Belegt 1 Byte
+int:  Erst pro Rechner abhängig //  meisten 4 Byte
+
+Beobachtung:
+
+Quelltext:   Zeilenumbruch
+
+Welches Zeichen wird im Quelltext für den Zeilenumbruch verwendet ???
+
+Windows: 0D 0A  auch als 13 (Carriage Return) und 10 (Line Feed) bekannt
+
+UNIX:    '\n'  (Line Feed)
+
+===========================================================
+
+Zeichenketten
+-------------
+
+Was ist in C eine Zeichenkette ???
+
+Definition: 
+
+Eine C-Zeichenkette ist ein char-Array von char-Elementen
+mit einem abschließendem Null-Wert im Speicher.
+
+Umsetzung in C:
+
+Mehrere Datentypen:
+
+== Konstante Zeichenkette:  const char*    // "123"
+
+== Feld von char                           // Array
+
+========================================
+
+ACHTUNG:    Konstante Zeichenkette:  char*
+
+Diese können in einem Speicherbereich liegen,
+der nicht geschrieben werden darf !!!!!!!
+
+
+==============================================
+==============================================
+
+Aufbau eines C-Programms :
+
+== Besteht aus mehreren C-Dateien  ( ==>  .obj - File )
+
+== Besteht kann mehrere Include-Dateien haben
+
+Daten
+
+A) Globale Variablen
+-------------------
+
+==> Definition:
+
+    Auf der obersten Ebene mit einem Vorbelegungswert
+
+==> Verwendung:
+
+In allen C-Dateien.
+
+Der Name muss bekannt gemacht werden:
+
+extern int globalVariable;   // OHNE DEN VORBELEGUNGSWERT
+
+Wo liegen sie: Im "globalen Datensegment"
+
+B) Lokale Variablen
+-------------------
+
+Kann man NUR INNERHALB von Funktionen 
+definieren und verwenden.
+
+Sie leben nur kurz
+
+Sie eignen sich nur für Zwischenergebnisse
+
+ACHTUNG: Mit Adressen kann man lokale Variablen
+         in anderen Funktionen zugänglich machen.
+
+Lokale Variablen liegen am Stack.
+
+Bemerkung: Das Stack Segment hat eine besondere Eigenschaft:
+
+Man kann da nicht DIREKT zugreifen.
+
+push, pop, Stack Pointer, Base Pointer
+
+
+C) Dynamische Variablen
+-------------------
+
+Kommt noch.
+
+D) Speicherklasse 'static'
+
+D1) Es gibt eine zweite Art von globalen Variablen:
+
+    Global in Bezug auf EINE DATEI.
+
+
+D2) Es gibt eine dritte Art von globalen Variablen:
+
+    Global in Bezug auf EINE Funktion.
+
+ACHTUNG: Mit Adressen kann man funktions-lokale Variablen
+         in anderen Funktionen zugänglich machen.
+
+===========================================================
+
+int n = 123;    // Wo liegt diese Konstante:  MASCHINENCODE
+
+double d = 123.123;  // Wo liegt diese Konstante:  Vermutlich im MASCHINENCODE
+
+char* sp = "1111111111111111";
+
+Die Konstante "1111111111111111" - also ALLES INNERHALB von Hochkomma - 
+liegt in einem geschützen Speicherbereich.
+
+Konsequenz:
+
+LESEN: Geht
+
+SCHREIBEN: Geht NICHT.
+
+======================================================
+
+Übungen zu Zeichenketten:
+
+a) int str_length(char* s);    // Länge einer Zeichenkette
+
+b) Anhängen eines einzelnen Zeichens an eine Zeichenkette:
+
+  "ABC"  : 'D'  =======>  "ABCD"
+
+  str_append :
+
+  // 0: result zu kurz
+  // 1: Hat geklappt
+
+  int str_append ( char* s, char ch, char* result, int length );
+
+
+2 Übungen:
+
+1.) Nicht Anhängen, sondern Einfügen:
+
+    "ABC", an der Stelle 1: '!'   ==>  "A!BC"
+
+  int str_insert ( char* s, char ch, int pos, char* result, int length );
+
+2.) Anhängen eines Zeichenkette:
+
+int str_appendEx ( char* s, char* toInsert, char* result, int length );
+
+"ABC" : "123"   ==> "ABC123"
+
+char ergebnis[100];
+int str_appendEx ( "ABC", "123", ergebnis, 100 );

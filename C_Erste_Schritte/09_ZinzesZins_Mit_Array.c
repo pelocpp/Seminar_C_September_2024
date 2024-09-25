@@ -4,8 +4,13 @@
 
 #include <stdio.h>
 
-static int doubleInterestRateWithWithAccumulation(double capital, double rate, double accumulation[], int length)
+#include "GlobalDefinitions.h"
+
+int doubleInterestRateWithWithAccumulation(
+    double capital, double rate, double accumulation[], int length, int* success)
 {
+    *success = 0;  // not succeeded
+
     double newCapital = capital;
 
     int year = 0;
@@ -16,14 +21,16 @@ static int doubleInterestRateWithWithAccumulation(double capital, double rate, d
 
         newCapital = newCapital + interest;
 
-        //    printf("Year %2d: %lf\n", year, newCapital);
-
         if (year < length) {
 
             accumulation[year] = newCapital;
         }
 
-        year = year + 1;
+        year++;
+    }
+
+    if (year < length) {
+        *success = 1;
     }
 
     return year;
@@ -39,7 +46,11 @@ void exercise_zinsberechnung_mit_array()
 
     double accumulatedCapital[Length] = { 0.0 };
 
-    int years = doubleInterestRateWithWithAccumulation(capital, rate, accumulatedCapital, Length);
+    int succeeded = 0;  // 0 == not succeeded, 1 == succeeded
+
+    int years = doubleInterestRateWithWithAccumulation(
+        capital, rate, accumulatedCapital, Length, &succeeded
+    );
 
     printf("After %d years, a capital of %lf with interest rate %.2lf is doubled!\n",
         years, capital, rate);

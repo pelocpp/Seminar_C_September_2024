@@ -1,30 +1,10 @@
 // Hello World
 
-/* Hello World */
-
 #include <stdio.h>
 
-// Vorwärtsdeklaration
-extern void test_control_structures();
-extern void test_control_structures_02();
-extern void test_control_structures_03();
-extern void test_true_false();
-extern void test_while();
-extern void test_increment();
-extern void test_even_uneven();
-extern void test_arrays();
-extern void testProcedures();
-extern void testProceduresRek();
-extern void testFunctions();
-extern void test_pointer();
-extern void test_pointer_arithmetic();
-extern void test_arrays_und_pointer();
-extern void exercise_zinsberechnung_mit_array();
+#include "GlobalDefinitions.h"
 
-void exercise_teuflische_folge();
-void exercise_zinsberechnung();
-
-int main_hello_world()
+static int main_hello_world()
 {
     printf("Hello World");
 
@@ -33,7 +13,7 @@ int main_hello_world()
 
 // ===========================
 
-int test_short()
+static int test_short()
 {
     int s1 = 123;
 
@@ -54,7 +34,7 @@ struct Time
     int second;
 };
 
-int test_datatypes()
+static int test_datatypes()
 {
     //struct Time jetzt;      // C/C++
     //struct Time jetztJava;
@@ -82,7 +62,8 @@ int test_datatypes()
 
 int main()  // Einsprungpunkt // entry point
 {
-    size = 456; 
-    exercise_zinsberechnung_mit_array();
+    printf("globalVariable: %d\n", globalVariable);
+
+    test_exercises_strings();
     return 0;
 }
