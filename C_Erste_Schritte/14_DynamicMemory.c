@@ -3,7 +3,7 @@
 
 #include "Wallet.h"
 
-void dynamic_memory_01()
+static void dynamic_memory_01()
 {
 	int n = 123;   // n liegt am Stack
 
@@ -34,7 +34,7 @@ void dynamic_memory_01()
 
 #define Length 10
 
-void dynamic_memory_02()
+static void dynamic_memory_02()
 {
 	// Feld am Heap anlegen: int-Array der Länge 10 
 	// Konsekutiver Speicherbereich
@@ -64,21 +64,21 @@ void dynamic_memory_02()
 	free(ap);
 }
 
-void dynamic_memory_03()
+static void dynamic_memory_03()
 {
 	int* ap = (int*) malloc(257);    // HEAP
 
-	printf("%d\n", ap[-1]);
-	printf("%d\n", ap[-2]);
-	printf("%d\n", ap[-3]);
-	printf("%d\n", ap[-4]);
-	printf("%d\n", ap[-5]);
+	//printf("%d\n", ap[-1]);
+	//printf("%d\n", ap[-2]);
+	//printf("%d\n", ap[-3]);
+	//printf("%d\n", ap[-4]);  // hier liegt die Länge des allokierten Speicherbereichs
+	//printf("%d\n", ap[-5]);
 
-	free(ap + 1);
+	free(ap);
 }
 
 
-void dynamic_memory_wallet()
+static void dynamic_memory_wallet()
 {
 	struct Wallet myStackWallet;                              // STACK
 
@@ -100,7 +100,7 @@ void dynamic_memory_wallet()
 
 // ==========================================================
 
-void tueWasMitDemWallet(struct Wallet* wallet)
+static void tueWasMitDemWallet(struct Wallet* wallet)
 {
 	wallet->m_euros++;
 
@@ -108,10 +108,7 @@ void tueWasMitDemWallet(struct Wallet* wallet)
 	// free(wallet);
 }
 
-
-
-
-void dynamic_memory_wallet_02()
+static void dynamic_memory_wallet_02()
 {
 	struct Wallet* myHeapWallet =
 		(struct Wallet*) malloc(sizeof(struct Wallet));    // HEAP
@@ -126,32 +123,73 @@ void dynamic_memory_wallet_02()
 
 // ====================================================================
 
+static int str_length(char* s)
+{
+	int length = 0;
+	while (s[length] != '\0') length++;
+	return length;
+}
 
 // str_append_dynamic ("ABC", "12345", ==> "ABC12345")
 
-char* str_append_dynamic_01(char* original, char* toAppend)
+static char* str_append_dynamic_01(char* original, char* toAppend)
 {
-	// Skizze:
+	// Berechne Länge des Ergebnisstrings
+	int lenTotal = str_length(original) + str_length(toAppend) + 1;
 
-	// Kann die Länge der Ergebnisstrings berechnen
-	// Len(original) + Len(toAppend) + 1 ('\0')
-	int lenTotal = 10;
-
+	// Speicher fuer Ergebniszeichenkette reservieren
 	char* result = malloc(sizeof (char) * lenTotal);
+	if (result == NULL) return NULL;
+
+	// Speicher fuer Ergebniszeichenkette fuellen: Ersten Teil umkopieren
+	int i = 0;
+	while (original[i] != '\0') {
+		result[i] = original[i];
+		i++;
+	}
+
+	// Speicher fuer Ergebniszeichenkette fuellen: Zweiten Teil umkopieren
+	int j = 0;
+	while (toAppend[j] != '\0') {
+		result[i] = toAppend[j];
+		j++;
+		i++;
+	}
+
+	// Terminierende Null anhängen
+	result[i] = '\0';
 
 	return result;
 }
 
-int str_append_dynamic_02(char* original, char* toAppend, char** ergebnis)
+static int str_append_dynamic_02(char* original, char* toAppend, char** ergebnis)
 {
-	// Skizze:
+	// Berechne Länge des Ergebnisstrings
+	int lenTotal = str_length(original) + str_length(toAppend) + 1;
 
-	// Kann die Länge der Ergebnisstrings berechnen
-	// Len(original) + Len(toAppend) + 1 ('\0')
-	int lenTotal = 10;
-
+	// Speicher fuer Ergebniszeichenkette reservieren
 	char* result = malloc(sizeof(char) * lenTotal);
+	if (result == NULL) return -1;
 
+	// Speicher fuer Ergebniszeichenkette fuellen: Ersten Teil umkopieren
+	int i = 0;
+	while (original[i] != '\0') {
+		result[i] = original[i];
+		i++;
+	}
+
+	// Speicher fuer Ergebniszeichenkette fuellen: Zweiten Teil umkopieren
+	int j = 0;
+	while (toAppend[j] != '\0') {
+		result[i] = toAppend[j];
+		j++;
+		i++;
+	}
+
+	// Terminierende Null anhängen
+	result[i] = '\0';
+
+	// Heap-Zeigervariable nach aussen reichen
 	*ergebnis = result;
 
 	return lenTotal;
@@ -161,5 +199,15 @@ void dynamic_memory()
 {
 	char* ergebnis = NULL;
 
-	str_append_dynamic_02("ABC", "12345", & ergebnis);   // char**
+	// 1. Variante
+	ergebnis = str_append_dynamic_01("ABCDEF", "12345");
+	printf("Ergebnis 1: %s\n", ergebnis);
+	free(ergebnis);
+
+	// 2. Variante
+	ergebnis = NULL;
+	int length = str_append_dynamic_02("ABCDEF", "12345", &ergebnis);
+	printf("Ergebnis 2: %s (Length: %d)\n", ergebnis, length);
+	free(ergebnis);
 }
+

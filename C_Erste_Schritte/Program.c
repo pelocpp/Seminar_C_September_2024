@@ -62,8 +62,6 @@ static int test_datatypes()
 
 int main()  // Einsprungpunkt // entry point
 {
-    printf("globalVariable: %d\n", globalVariable);
-
     dynamic_memory();
     return 0;
 }
