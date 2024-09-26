@@ -139,10 +139,13 @@
     <ClCompile Include="10_Zeichen_Zeichenketten.c" />
     <ClCompile Include="11_Memory.c" />
     <ClCompile Include="12_Structs.c" />
+    <ClCompile Include="13_Wallet.c" />
+    <ClCompile Include="14_DynamicMemory.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Dienstag.txt" />
+    <Text Include="..\Notizzettel_Donnerstag.txt" />
     <Text Include="..\Notizzettel_Mittwoch.txt" />
     <Text Include="..\Notizzettel_Montag.txt" />
   </ItemGroup>
@@ -153,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="GlobalDefinitions.h" />
     <ClInclude Include="Time.h" />
+    <ClInclude Include="Wallet.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

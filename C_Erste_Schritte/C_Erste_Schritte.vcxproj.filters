@@ -54,11 +54,18 @@
     <ClCompile Include="12_Structs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="13_Wallet.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="14_DynamicMemory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Montag.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
     <Text Include="..\Notizzettel_Mittwoch.txt" />
+    <Text Include="..\Notizzettel_Donnerstag.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Pointer_01.png">
@@ -73,6 +80,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Wallet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

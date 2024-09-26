@@ -34,6 +34,9 @@ extern void test_strings();
 extern void test_memory();
 extern void test_exercises_strings();
 extern void test_structs();
+extern void test_structs_vs_arrays();
+extern void test_pointer_gimmick();
+extern void dynamic_memory();
 
 extern void exercise_zinsberechnung_mit_array();
 extern void exercise_teuflische_folge();

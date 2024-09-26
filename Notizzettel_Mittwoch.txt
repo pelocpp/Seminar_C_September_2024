@@ -269,6 +269,35 @@ typedef ALT NEU;
 
 ACHTUNG:
 
-== Arrays:     Bei Arrays wird bei der Parameterübergabe die ANFANGSADRESSE übergeben.
-== Strukturen: Bei Strukturen wird bei der Parameterübergabe eine KOPIE übergeben.
+== Arrays:     
+
+      Bei Arrays wird bei der Parameterübergabe die ANFANGSADRESSE übergeben.
+
+== Strukturen: 
+
+      Bei Strukturen wird bei der Parameterübergabe eine KOPIE übergeben.
+
+Achtung:
+
+   Ist in einer Struktur ein Feld enthalten,
+   wird auch von dem Feld eine Kopie bei der Parameterübergabe
+   erstellt und übergeben.
+
+Wiederholung:
+
+C hat Call-by-Value als Prinzip bei der Parameterübergabe !
+-----------------------------------------------------------
+
+Bemerkung:
+
+C Kann sehr wohl Call-by-Address als Prinzip der Parameterübergabe hantieren !
+------------------------------------------------------------------------------
+
+Dies muss man allerdings explizit formulieren - mit Parametern
+vom Typ Pointer.
+
+============================================================
+============================================================
+
+
 

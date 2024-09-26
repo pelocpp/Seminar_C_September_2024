@@ -1,0 +1,151 @@
+===================================
+Programmierung in C
+
+Peter Loos
+
+===================================
+
+Donnerstag
+
+Überblick:
+
+== OO Programmierung in C
+
+== Dyn. Speicherverwaltung
+
+== Mehr-dim. Arrays
+
+   Felder von Feldern: "Gezackte" Felder
+
+===================================
+
+OO Programmierung in C:
+
+Objekt-orientierte Programmierung:
+
+Siehe auch
+
+"Objektorientierte Programmierung mit ANSI C"
+
+von A.T. Schreiner.
+
+== Klassen, Methoden, Objekte
+== Konstruktoren
+
+// C++ // C# // Java
+class Time
+{
+    private:
+       int m_hours;
+       int m_minutes;
+       int m_seconds;
+
+    public:
+       Time ();
+       Time (hours, minutes, seconds);
+
+       void increment();
+       void print();
+       void addSeconds (int seconds);
+       bool equals (const Time& other);    // C++: & steht für eine Referenz: Adresse
+};
+
+void equals (const Time& other)
+{
+    if (other -> minutes == ....)   // Time*
+
+    if (other.minutes == ....)      // Time&
+}
+
+Time now;
+now.increment();
+
+// Assembler: call    // "versteckten ersten Parameter: Adresse des Objekts"
+increment(&now);      // in der Methode steht &now unter dem Namen this
+                      // zur Verfügung
+
+
+// Das kann man durchaus - mit gewissen Einschränkungen - 
+in C nachahmen.
+
+// C
+struct Time
+{
+    int m_hours;
+    int m_minutes;
+    int m_seconds;
+};
+
+// Wie - in C - können wir "Methoden" mit der 'struct Time'
+in Verbindung bringen?
+
+Methoden:
+
+Durch einen ersten Parameter vom Typ der Struktur.
+
+void increment  (struct Time* this);
+void print      (struct Time* this);
+void addSeconds (struct Time* this, int seconds);
+int  equals     (struct Time* this, struct Time* other);
+
+Konstruktoren:
+
+Time now = { 9, 58, 30 };
+Time t = { 0, 0, 0 };
+
+Da ist etwas "schwächlich" ... aber für Konstruktoren 
+wäre das die einfachste Vorgehensweise.
+
+========================================================
+=======================================================
+
+Ablage der Daten:
+
+A) Globale Daten
+
+      static => File-Scope // Unterprogramm-Scope
+
+B) Stack // Stapel
+
+   Können ebenfalls elementare Variablen
+   ALS AUCH Strukturvariablen (Objekte) liegen.
+
+   Aber:
+   i)  Sollten nicht zu gross sein
+   ii) Sie sind nur innerhalb der Funktion verfügbar.
+
+C) Heap // Halde
+
+   Ist nur über Bibliotheksfunktionen erreichbar.
+
+   Daten am Heap sind nur über Zeiger erreichbar.
+
+==================================================
+
+malloc (memory allocate) liefert NULL zurück, wenn es keinen Speicher mehr gibt.
+
+Ist dies pro Aufruf zu überprüfen?
+
+A) Wenn umfangreicherer Speicher anfgefordert wird (mehr als 1000 Bytes),
+   dann sicherlich ja !!!
+
+B) Wenn geringfügige Mengen allokiert werden: (PL) Dann eher nicht.
+
+ Mit Augenmaß ......................
+
+=============================
+
+Übung:
+
+int str_append_ex(char* original, char* toInsert, char* result, int length)
+
+Redesign:
+
+OHNE ARRAY FESTER LÄNGE
+
+Redesign:
+
+int doubleInterestRateWithWithAccumulation(
+    double capital, double rate, double accumulation[], int length, int* success)
+
+OHNE ARRAY FESTER LÄNGE

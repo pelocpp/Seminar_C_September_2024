@@ -64,6 +64,6 @@ int main()  // Einsprungpunkt // entry point
 {
     printf("globalVariable: %d\n", globalVariable);
 
-    test_structs();
+    dynamic_memory();
     return 0;
 }
