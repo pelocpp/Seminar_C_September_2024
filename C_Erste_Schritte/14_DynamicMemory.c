@@ -199,7 +199,7 @@ void dynamic_memory()
 {
 	char* ergebnis = NULL;
 
-	// 1. Variante
+	// 1. Variante: einfachere Betrachtung
 	ergebnis = str_append_dynamic_01("ABCDEF", "12345");
 	printf("Ergebnis 1: %s\n", ergebnis);
 	free(ergebnis);

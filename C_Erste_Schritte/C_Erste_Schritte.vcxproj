@@ -141,6 +141,7 @@
     <ClCompile Include="12_Structs.c" />
     <ClCompile Include="13_Wallet.c" />
     <ClCompile Include="14_DynamicMemory.c" />
+    <ClCompile Include="15_DynamicArray.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,7 @@
     <Image Include="..\Pointer_02.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="15_DynamicArray.h" />
     <ClInclude Include="GlobalDefinitions.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Wallet.h" />

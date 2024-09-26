@@ -62,6 +62,6 @@ static int test_datatypes()
 
 int main()  // Einsprungpunkt // entry point
 {
-    dynamic_memory();
+    test_dynamic_int_array();
     return 0;
 }

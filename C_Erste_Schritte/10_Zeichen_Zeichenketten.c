@@ -212,7 +212,7 @@ static int str_append_ex(char* s, char* toInsert, char* result, int length)
 }
 
 
-#define Length  10
+#define Length  256   // diesen Wert werde ich niemals überschreiten
 
 void test_exercises_strings()
 {

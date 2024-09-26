@@ -149,3 +149,57 @@ int doubleInterestRateWithWithAccumulation(
     double capital, double rate, double accumulation[], int length, int* success)
 
 OHNE ARRAY FESTER LÄNGE
+
+=============================================================
+
+Dynamic Memory:
+
+a) malloc / free
+
+b) 1. Beispiel: Reservieren einer Ergebnispuffers "pass-genau"
+
+c) 2. Beispiel: Dynamische Datenstruktur
+
+=============================================================
+
+2. Beispiel: Dynamische Datenstruktur
+-------------------------------------
+
+== Dynamische Daten
+== Struktur
+== Best Practice
+
+Problem:
+
+C:  Arrays
+
+int feld [100];  // FIXED SIZE
+
+Anders herum:
+
+Es gibt kein ReSize
+
+i) C++: std::vector
+
+   resize
+   shrinkToFit
+
+
+malloc ===> Feld variabler Länge
+
+Datenstruktur:  DynamicArray  -- Funktionalität
+
+"Versuch einer Kapselung in einer an sich liberalen Sprache C"
+
+Dokumentation:
+
+https://github.com/pelocpp/c_introduction/blob/master/C_Introduction/Exercises/DynamicIntArray/Exercises_DynamicIntArray.md
+
+Feld variabler Länge
+
+A) Mit einer Struktur - struct
+
+((  Nebenbemerkung
+   size_t: vorzeichenlos ... nur positive Zahlen
+   ist auf die Breite das Akkus angepasst.
+))
