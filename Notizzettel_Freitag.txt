@@ -1,0 +1,128 @@
+===================================
+Programmierung in C
+
+Peter Loos
+
+===================================
+
+Freitag
+
+===================================
+
+Mehr-dimensionale Arrays:
+
+== Rechteckig // Tabellenförmig 
+
+===================================
+
+Einfacher
+
+== Mehr-dimensionale Felder, NICHT rechteckig.
+
+== Verkettete Liste: Machen wir  // Linked List 
+
+===================================
+
+enum: Aufzählungstyp  
+
+Was ist ein enum:
+
+Man versteht darunter "symbolische Konstanten"
+
+Okay, intern wird der Wert auf einen int abgebildet :)
+
+// Textersetzung
+
+#define MONDAY   1
+#define TUESDAY  2
+...
+#define SUNDAY   7
+
+
+int tag = TUESDAY;   // 1 .. 7
+
+int tag = 1;
+
+// Alternative:
+
+
+========================================================
+
+Welche Bezeicher müssen in einem C Programm verschieden sein  ???
+
+In einem C Programm gibt es DREI Namensräume // Bereiche,
+in denen Namen eindeutig sein müssen:
+
+== Oberste Ebene
+
+   // Ebenen wie: Alle Parameter und lokale Variablen
+   // Alle Variablen in einem Scope
+
+== Strukturen (Unions) // struct
+
+== enums
+
+Beispiel:
+
+'level' ist der  Bezeichner eines enums
+
+enum level
+
+Ich kann eine Variable level vom Typ enum level vereibaren:
+
+enum level level;
+
+============================================================
+
+
+Zackige Arrays:
+
+2 - dimensionale Felder, die NICHT rechteckig sind.
+
+== Mehrere Datenbereich // mehrers Arrays unterschiedlicher Länge
+
+== Will die aber wiederum in einem Array gesammelt ansprechen können.
+
+============================================================
+
+Hinweis:
+
+http://dmitrysoshnikov.com/compilers/writing-a-memory-allocator/
+
+============================================================
+
+Programmiersprache C / C++
+
+Werkzeug // Tool
+
+"Algorithmen / Datenstrukturen"
+
+C / C# / Java  ===> Hilfsmittel 
+
+Rad: Neu erfunden  // Bibliotheken
+
+Kern - Datenstrukturen: Verkettete Liste / Linked List
+
+Sie speichert Daten ab.
+
+In einem Feld. ==>  Länge // Fest // DynamicArray
+
+Konträr andere Ansatz:
+
+An Stelle eines konsekutiven Stück Speichers (Array)
+
+eine zerstreute Liste von Blöcken im Speicher aufbauen,
+
+die miteinander verkettet sind.
+
+Daten: 
+
+Call-to-Action: Eine verkettete Liste sollte man mit Hilfe einer Bibliothek verwenden.
+
+   GitHub
+
+C:   Keine Standard-Liste  ( CRT - C Runtime Library )
+
+C++:  std::list, std::forward_list
+
+

@@ -62,6 +62,7 @@ static int test_datatypes()
 
 int main()  // Einsprungpunkt // entry point
 {
-    test_dynamic_int_array();
+    exercise_contacts_dynamic();
+
     return 0;
 }

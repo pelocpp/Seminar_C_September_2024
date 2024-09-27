@@ -5,6 +5,8 @@
 
 Time nowGlobal;
 
+struct time time;  // 
+
 void printTime(Time t)
 {
     printf("%02d:%02d:%02d\n", t.hours, t.minutes, t.seconds);

@@ -38,6 +38,11 @@ extern void test_structs_vs_arrays();
 extern void test_pointer_gimmick();
 extern void dynamic_memory();
 extern void test_dynamic_int_array();
+extern void mainUnionsBitfieldsEnums();
+extern void mainMultidimensionalArrays();
+extern void jaggedArrays();
+extern void exercise_linked_list();
+extern void exercise_contacts_dynamic();
 
 extern void exercise_zinsberechnung_mit_array();
 extern void exercise_teuflische_folge();

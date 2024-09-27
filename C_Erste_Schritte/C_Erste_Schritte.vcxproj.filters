@@ -63,12 +63,28 @@
     <ClCompile Include="15_DynamicArray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="16_Unions_Bitfields_Enums.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="17_MultiDimensionalArrays.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="18_JaggedArrays.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="19_LinkedList.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="20_Kontakte_Verwaltung.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Montag.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
     <Text Include="..\Notizzettel_Mittwoch.txt" />
     <Text Include="..\Notizzettel_Donnerstag.txt" />
+    <Text Include="..\Notizzettel_Freitag.txt" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Pointer_01.png">

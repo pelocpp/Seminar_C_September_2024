@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,11 +143,17 @@
     <ClCompile Include="13_Wallet.c" />
     <ClCompile Include="14_DynamicMemory.c" />
     <ClCompile Include="15_DynamicArray.c" />
+    <ClCompile Include="16_Unions_Bitfields_Enums.c" />
+    <ClCompile Include="17_MultiDimensionalArrays.c" />
+    <ClCompile Include="18_JaggedArrays.c" />
+    <ClCompile Include="19_LinkedList.c" />
+    <ClCompile Include="20_Kontakte_Verwaltung.c" />
     <ClCompile Include="Program.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Notizzettel_Dienstag.txt" />
     <Text Include="..\Notizzettel_Donnerstag.txt" />
+    <Text Include="..\Notizzettel_Freitag.txt" />
     <Text Include="..\Notizzettel_Mittwoch.txt" />
     <Text Include="..\Notizzettel_Montag.txt" />
   </ItemGroup>

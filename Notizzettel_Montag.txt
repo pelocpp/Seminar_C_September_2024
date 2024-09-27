@@ -4,6 +4,35 @@ Programmierung in C
 
 Peter Loos
 
+peter.loos@gmx.de
+
+https://github.com/pelocpp
+
+https://github.com/pelocpp/c_introduction
+
+https://peterloos.de/
+
+===================================
+
+Online Compiler
+
+https://wandbox.org/
+
+https://github.com/pelocpp/cpp_modern/blob/master/GeneralSnippets/OnlineCppCompilers/OnlineCppCompilers.md
+
+
+Noch in Link:
+
+https://savedparadigms.wordpress.com/wp-content/uploads/2014/09/harbison-s-p-steele-g-l-c-a-reference-manual-5th-ed.pdf
+
+oder auch
+
+Buch:
+
+"A Retargetable C Compiler: Design and Implementation"
+
+https://www.amazon.de/-/en/Christopher-Fraser/dp/0805316701
+
 ===================================
 
 Montag
